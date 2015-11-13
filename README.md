@@ -9,7 +9,7 @@ It requires these environmnent variables be set:
 2. `AWS_SECRET_KEY` - Your S3 secret key
 3. `SNAPSHOT_BUCKET` - The S3 bucket that the snapshot is in
 4. `SNAPSHOT_ID` - The snapshot you wish to restore from
-5 `CLUSTER_NAME` - The ElasticSearch cluster name
+5. `CLUSTER_NAME` - The ElasticSearch cluster name
 
 Examples:
 ```
