@@ -54,5 +54,3 @@ startSnapshotter() {
 }
 
 startSnapshotter
-
-
