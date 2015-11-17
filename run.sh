@@ -11,7 +11,7 @@ KOMOREBI_COMMAND="curl -s localhost:$ES_PORT/$ES_HEALTH_PATH | grep -q GOOD"
 set -e
 
 # Start Snapshot process
-#./snapshotter.sh &
+./snapshotter.sh &
 
 # Starts 'sane health check' process
 # The sane health checker translates $KOMOREBI_COMMAND's exit code
