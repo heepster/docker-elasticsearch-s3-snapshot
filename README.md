@@ -27,3 +27,29 @@ This image installs the `elasticsearch-head` plugin.  You'll need to add the `ht
 ## Dockerhub
 
 This image is automatically built by Dockerhub.  The repository is: https://hub.docker.com/r/heepster/docker-elasticsearch-s3-snapshot/
+
+## Configuration
+
+Optionally, this docker offers the ability to give you back a sane health check while restoring the snapshot.  If you query ElasticSearch's `_cluster/health` endpoint while restoring the snapshot, it will give you back something like
+
+```
+{ "status": "red",
+...
+}
+```
+
+The "red" is supposed to indicate that ElasticSearch isn't ready.  However, the actual HTTP response is a 200, which throws off health check services that rely on a non-200 response to infer health status.
+
+You can turn on the sane health check feature by setting an environment variable to true:
+
+```
+SANE_HEALTH_CHECK=true
+```
+
+Then, a new endpoint will give you either a `200` or `500` depending on whether or not the snapshot restoration is complete.  That endpoint is:
+
+```
+<ip>:9400/
+```
+
+(Note that the port is different from ElasticSearch's default port.)
