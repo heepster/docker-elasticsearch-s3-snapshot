@@ -5,6 +5,9 @@
 
 set -e
 
+# Start Snapshot process
+./snapshotter.sh & 
+
 # Add elasticsearch as command if needed
 if [ "${1:0:1}" = '-' ]; then
     set -- elasticsearch "$@"
