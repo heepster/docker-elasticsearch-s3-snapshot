@@ -12,7 +12,12 @@ It requires these environmnent variables be set:
 
 Examples:
 ```
-docker run -p 9200:9200 -e "AWS_ACCESS_KEY_ID=1234" -e "AWS_SECRET_KEY=1234" -e "SNAPSHOT_BUCKET=my_snapshots" -e "SNAPSHOT_ID=my_snapshot" -e "CLUSTER_NAME=my-cluster" heepster/docker-elasticsearch-s3-snapshot
+docker run -p 9200:9200 -e "AWS_ACCESS_KEY_ID=1234" \
+                        -e "AWS_SECRET_KEY=1234" \
+                        -e "SNAPSHOT_BUCKET=my_snapshots" \
+                        -e "SNAPSHOT_ID=my_snapshot" \
+                        -e "CLUSTER_NAME=my-cluster" \
+                        heepster/docker-elasticsearch-s3-snapshot
 ```
 
 ## Plugins
