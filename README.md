@@ -16,7 +16,6 @@ docker run -p 9200:9200 -e "AWS_ACCESS_KEY_ID=1234" \
                         -e "AWS_SECRET_KEY=1234" \
                         -e "SNAPSHOT_BUCKET=my_snapshots" \
                         -e "SNAPSHOT_ID=my_snapshot" \
-                        -e "CLUSTER_NAME=my-cluster" \
                         heepster/docker-elasticsearch-s3-snapshot
 ```
 
@@ -29,6 +28,16 @@ This image installs the `elasticsearch-head` plugin.  You'll need to add the `ht
 This image is automatically built by Dockerhub.  The repository is: https://hub.docker.com/r/heepster/docker-elasticsearch-s3-snapshot/
 
 ## Configuration
+
+### Elasticsearch Config
+
+You can pass additional elastic search config options by appending them to end of the `docker run` command:
+
+```
+-Des.node.name="TestNode"
+```
+
+### Sane Health Check
 
 Optionally, this docker offers the ability to give you back a sane health check while restoring the snapshot.  If you query ElasticSearch's `_cluster/health` endpoint while restoring the snapshot, it will give you back something like
 
