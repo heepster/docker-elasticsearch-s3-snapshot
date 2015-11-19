@@ -62,3 +62,7 @@ Then, a new endpoint will give you either a `200` or `500` depending on whether 
 ```
 
 (Note that the port is different from ElasticSearch's default port.)
+
+## TODOs
+
+1.  If the Snapshot restoration process fails (e.g. if the snapshot doesn't exist), ElasticSearch's cluster health check will return a 'status: green' which means everything is working...Unfortunately, the sane health check feature will then relay this exactly.  If the snapshot doesn't work, then I think the right thing to do is to kill the docker.  Still need to think more about this.    
